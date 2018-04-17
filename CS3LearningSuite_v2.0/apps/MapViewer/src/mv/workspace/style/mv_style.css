@@ -1,0 +1,171 @@
+/*
+    This style sheet manages the layout and style for all controls inside the
+    MV JavaFX application. Note that the stylesheet has been setup such that
+    all colors in use are declared first as swatch colors inside the root 
+    and so one can change the color theme used by the app simply by changing
+    these colors.
+
+    Note that Material Design icons are being employed for all icon buttons
+    in this application, both for the Desktop Java Framework's top toolbar
+    as well as for icon buttons in the M3's edit toolbar. Note that this
+    app uses icons from https://material.io/icons/ and icon image sizes in
+    use are as follows:
+        djf top toolbar buttons: 36x36
+        
+
+    @author Richard McKenna
+    @version 1.0
+*/
+.root{
+    /* 
+        FIRST WE'LL DEFINE OUR SWATCHES, i.e. THE COMPLEMENTARY
+        COLORS THAT WE'LL USE TOGETHER IN MULTIPLE PLACES THAT
+        TOGETHER WILL MAKE UP A GIVEN THEME
+    */
+    -swatch-neutral:        #E6E6E6;
+    -swatch-primary-up:     #A8C0AD;
+    -swatch-primary:        #C9E0CD;
+    -swatch-primary-down:   #E9E0ED;
+    -swatch-complement:     #E1E4CB;
+    -swatch-accent:         #227722;
+    -swatch-bright-accent:  #d84533;
+    
+    -fx-font-family: "Roboto";
+}
+/** 
+    FIRST WE HAVE THE CONTROLS THAT THE DESKTOP JAVA FRAMEWORK
+    MAY BE MAKING USE OF:
+        .djf_top_toolbar: toolbar running the length of the top
+        .djf_top_toolbar_pane: a pane in the top toolbar with buttons
+        .djf_icon_button: buttons in the top toolbar panes
+**/
+.djf_top_toolbar {
+    -fx-background-color:   -swatch-neutral;
+    -fx-border-color:       -swatch-accent;
+    -fx-border-width:       2;
+    -fx-border-radius:      15;
+}
+.djf_toolbar_pane {
+    -fx-background-color:   -swatch-complement;
+    -fx-border-color:       -swatch-accent;
+    -fx-border-width:       2;
+    -fx-border-radius:      15;
+}
+.djf_icon_button {
+    -fx-background-color:   transparent;
+    -fx-pref-height:        42;
+    -fx-pref-width:         42;
+    -fx-min-height:         42;
+    -fx-min-width:          42;
+    -fx-padding:            0;
+}
+.djf_icon_button:hover {
+    -fx-background-color: linear-gradient(-swatch-primary-down, -swatch-primary-up);    
+}
+.djf_welcome_banner {
+    -fx-border-color:transparent;
+    -fx-border-width:10;
+}
+.djf_welcome_header {
+    -fx-font-size: 32pt;
+    -fx-background-color: transparent;
+}
+.djf_welcome_recent_pane {
+    -fx-padding: 20 20 20 20;
+    -fx-background-color:transparent;
+}
+.djf_welcome_recent_button {
+    -fx-font-size: 14pt;
+    -fx-underline: true;
+    -fx-text-fill: blue;
+    -fx-background-color:transparent;
+}
+.djf_welcome_recent_button:hover {
+    -fx-text-fill: magenta;
+}
+.djf_welcome_recent_button:pressed {
+    -fx-text-fill: yellow;
+}
+.djf_welcome_new_pane {
+    -fx-background-color:transparent;
+}
+.djf_welcome_new_button {
+    -fx-font-size:20pt;
+    -fx-background-color:transparent;
+    -fx-border-width:2px;
+    -fx-border-color:black;
+    -fx-border-radius:15px;
+}
+.djf_welcome_new_button:hover{
+    -fx-background-color:-swatch-primary;
+}
+.djf-welcome_new_button:pressed{
+    -fx-background-color:-swatch-accent;
+}
+
+/**
+    NEXT THE APP-SPECIFIC CONTROLS
+**/
+.mv_map_clip_pane{
+    -fx-border: 1 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 4;
+    
+}
+
+.mv_mapview_pane{
+    -fx-background-color: green;
+    -fx-border: 0 0 0 0;
+    -fx-border-color: black;
+    -fx-border-radius: 4;
+    -fx-padding: 0 0 0 0;
+    
+}
+
+.mv_map_pane {
+     -fx-fill:
+        radial-gradient(radius 200%, #9999ff, derive(#9999ff, -70%), derive(#9999ff, 70%));
+}
+
+.mv_map_mouse {
+     -fx-fill:
+        linear-gradient(-swatch-primary-down, -swatch-primary-up);    
+     -fx-padding: 10 100 10 10;
+}
+
+.mv_map_exit {
+     -fx-fill:
+        linear-gradient(RED, PINK);    
+}
+
+.mv_map_ocean {    
+    -fx-fill:
+        radial-gradient(radius 200%, #9999ff, derive(#9999ff, -70%), derive(#9999ff, 70%));
+}
+.tooltip {
+    -fx-font-size:14pt;
+    -fx-font-weight:bold;
+    -fx-background-radius: 50 50 50 50;
+    -fx-background-color:-swatch-bright-accent;
+}
+.mv_pane, .mv_box {
+    -fx-background-color: rgb(201, 224, 205);
+    -fx-border: 1 1 0 0;
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-padding: 10 12 10 10;
+    -fx-effect: dropshadow(three-pass-box, purple, 10, 0, 0, 0);
+}
+
+
+.mv_small_header {
+    -fx-font-size: 16pt;
+}
+
+.mv_map_header {
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-font-size: 24pt;
+    -fx-color: black;
+}
+
